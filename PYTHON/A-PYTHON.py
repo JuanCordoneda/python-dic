@@ -19,15 +19,19 @@ extraer = nombre[1:8]                 # recorta las palabras
 nombre.capitalize()                   # pone la primera en mayúscula
 nombre.upper()                        # pone todo en mayusculas
 nombre.lower()                        # cambia a minusculas
-nombre.count()                        # contar cuantas veces aparece una cadena de caracteres
+nombre.swapcase()                     # cambia mayus a minus y al revez
+nombre.title()                        # pone todo en mayusculas
+nombre.count("a")                     # contar cuantas veces aparece una cadena de caracteres
 nombre.find('hola')                   # encontrar la posicion en donde aparece un caracter en un texto
 nombre.rfind()                        # hace lo mismo con find, pero este lo hace contando desde atras
-nombre.isdigit()                      # te devuelve un booleano t o f
+nombre.isdigit()                      # si es un numero devuelve true
 nombre.isalum()                       # comprobar si son alfanumericos
 nombre.isalpha()                      # comprobar si hay solo letras
+nombre.startswith('Ella')             # comprobar si el string empieza con...
+nombre.startswith('Rust')             # comprobar si el string termina con...
 nombre.split()                        # separa x palabras utilizando espacios
 nombre.strip()                        # borrar espacios sobrantes al pcipo y al final
-nombre.replace()                      # cambia letra o palabra x otra dentro de un string
+nombre.replace('Python', 'Go')        # cambia letra o palabra x otra dentro de un string
 nombre.partition('i')                 # particiona, devuelve=('jav', 'i', 'er') 
 # ----------------------------------------------- VARIBALES INTEGER --------------------------------------------------
 round(0.8888,2)                       # REDONDEAR: 2 es el número de números atras de la coma
@@ -36,13 +40,17 @@ lista=[1, 2, 3, 4, 5]
 rango = list( range(10) )             #[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 lista=lista.sort()                    # ORDENAR ELEMENTOS DEL ARRAY
 lista=lista.sort(reverse=True)        # ORDENAR ELEMENTOS DEL ARRAY(INVERTIDOS)
+index = lista.index('todo 2')         # obtiene la posicion del elemento
 lista=lista.append(10)                # agregar un elemento
+lista=lista.insert(0,10)              # agregar un elemento en pos 0.
 lista=lista.extend([11,12])           # agregar un array al array
 lista= lista + ['i','j','k']          # agregar un array al array otra forma
+lista[-1] = 10                        # agregar al array de otra froma al final
 lista= lista.pop(2)                   # quitar elem de un array
 lista= lista.pop()                    # quitar el ultimo elemento
 contador=len(lista)                   # largo del array
 suma=sum(lista)                       # SUMA TODOS LOS VALORES DEL ARRAY
+print(lista[:3])                      # imprime todos los 0,1,2
 
 for i in lista:                       # RECORRER ARRAY
     print(i*'+')
@@ -270,7 +278,7 @@ class FiguraGeometrica(ABC):
 
 Rectangulo=FiguraGeometrica(30,20)
 print('area:',Rectangulo.area())
-# -------------------------------------------------- SQL --------------------------------------------------
+# ----------------------------------------------------------- SQL -----------------------------------------------------------
 import psycopg2
 
 conexion = psycopg2.connect(user='postgres',
@@ -380,3 +388,5 @@ finally:
 # -------------------------------------------------- RANDOM --------------------------------------------------
 import random
 random.randint(1,100)
+options = ('piedra', 'papel', 'tijera')
+computer_option = random.choice(options)
