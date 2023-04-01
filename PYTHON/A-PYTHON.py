@@ -39,46 +39,70 @@ round(0.8888,2)                       # REDONDEAR: 2 es el número de números a
 lista=[1, 2, 3, 4, 5]
 rango = list( range(10) )             #[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 lista=lista.sort()                    # ORDENAR ELEMENTOS DEL ARRAY
-lista=lista.sort(reverse=True)        # ORDENAR ELEMENTOS DEL ARRAY(INVERTIDOS)
-index = lista.index('todo 2')         # obtiene la posicion del elemento
+lista=lista.sort(reverse=True)        # ORDENAR ELEMENTOS DEL ARRAY (INVERTIDOS)
+lista=lista.reverse()                 # ORDENAR ELEMENTOS DEL ARRAY INVERTIDO
+index=lista.index('todo 2')           # obtiene la posicion del elemento
 lista=lista.append(10)                # agregar un elemento
 lista=lista.insert(0,10)              # agregar un elemento en pos 0.
 lista=lista.extend([11,12])           # agregar un array al array
 lista= lista + ['i','j','k']          # agregar un array al array otra forma
 lista[-1] = 10                        # agregar al array de otra froma al final
+lista.remove('todo 1')                # quitar elem de un array
 lista= lista.pop(2)                   # quitar elem de un array
 lista= lista.pop()                    # quitar el ultimo elemento
 contador=len(lista)                   # largo del array
 suma=sum(lista)                       # SUMA TODOS LOS VALORES DEL ARRAY
 print(lista[:3])                      # imprime todos los 0,1,2
+my_list = list('tupla')               # convertir tupla en lista
 
 for i in lista:                       # RECORRER ARRAY
     print(i*'+')
-# -------------------------------------------- JSON -----------------------------------------------------------
-
-diccionario = {                       #un diccionario está compuesto de llave,valor (key,value)               
+#array bidimensional
+people = [{'name': 'nico','age': 34},{'name': 'zule','age': 45},{'name': 'santi','age': 4}]
+for person in people:
+  print('name =>', person['name'])
+# -------------------------------------------- DICCIONARIOS -----------------------------------------------------------
+diccionario = {                                       #un diccionario está compuesto de llave,valor (key,value)               
     "IDE": "ELEMENTO 1",
-    "OOP": "ELEMENTO 2",
-    "DBMS": "ELEMENTO 3"
+    'langs': ['python', 'javascript'],
+    'age': 99
 }    
-diccionario["PK"] = "Primary Key"               #agregar nuevos elementos
-diccionario.update({'a':10,'b':40})             #agregar nuevos elementos de otra forma
-variable= diccionario["IDE"]                    #accediendo a un elemento
-variable= diccionario.get("IDE")                #accediendo a un elemento, mismo resultado
-diccionario.get('Sex', "respuesta equivocada")  #accediendo a un elemento, Si no lo encuentra, tira excepcion
-diccionario["IDE"]= "ELEMENTO"                  #modificando valores
-variable= "IDE" in diccionario                  #comprobando existencia de un elemento
-diccionario.pop("DBMS")                         #remover elementos
-diccionario.clear()                             #limpiar 
-variable=len(diccionario)                       #largo
+print(diccionario.items())                            #var_dump
+print(diccionario.items())                            #primer elem
+print(diccionario.values())                           #segundo elem
+diccionario["PK"] = "Primary Key"                     #agregar nuevos elementos
+diccionario.update({'a':10,'b':40})                   #agregar nuevos elementos de otra forma
+diccionario['langs'].append('php')                    #agregar a lista
+variable= diccionario["IDE"]                          #accediendo a un elemento
+variable= diccionario.get("IDE")                      #accediendo a un elemento, mismo resultado
+diccionario.get('Sex', "respuesta equivocada")        #accediendo a un elemento, Si no lo encuentra, tira excepcion
+diccionario["IDE"]= "ELEMENTO"                        #modificando valores
+variable= "IDE" in diccionario                        #comprobando existencia de un elemento
+del diccionario['last_name']                          #remover elementos
+diccionario.pop("DBMS")                               #remover elementos
+diccionario.clear()                                   #limpiar 
+variable=len(diccionario)                             #largo
+print('avion' in diccionario)                         #false
 
-edades = {'juanjo': 35, 'pedro': 45, 'valeria': 24}   #for
-for nombre in edades:
-  print(nombre + " tiene " + str(edades[nombre]) + "años.")
-# -------------------------------------------- TUPLAS --------------------------------------------------
-planetas = {"Marte", "Júpiter", "Venus"}         #colección sin orden y sin índices, no permite elementos repetidos y los elementos no se pueden modificar, pero si agregar nuevos o eliminar
-a=tuple([1,2,3,4,5,6])                           #tupla
-b=set([1,2,3,4,5,6])                             #conjunto
+for nombre in diccionario:
+  print(nombre + " tiene " + str(diccionario[nombre]) + "años.")
+for key, value in diccionario.items():
+  print(key, '=>', value)
+# -------------------------------------------- {SET} --------------------------------------------------
+tupla = {'col', 'mex', 'bol'}                    # conjunto (no se repite y se ordena) 
+tupla = set([1,2,3,4,5,6])                       # {1, 2, 3, 4} 
+tupla = set('hoola')                             # {'h', 'o', 'a', 'l'}
+tupla = {1, 'hola', False, 12.12}                # puede ser mixto. El set se ordena solo, lo importante es lo que tengo dentro.
+tupla = set(('abc','cbv','as','abc'))            # {'as', 'abc', 'cbv'}
+size = len(tupla)                                # obtener el largo
+size.add('arg')                                   # agregar 
+
+print('col' in tupla)                            # true
+
+# -------------------------------------------- (TUPLAS) --------------------------------------------------
+planetas = ("Marte", "Júpiter", "Venus")         #Estructura de datos inmutables que contiene una secuencia ordenada de elementos los elementos no se pueden modificar, pero si agregar nuevos o eliminar
+numeros = (1, 2, 3, 4)                           
+a=tuple([1,2,3,4,5,6])                           #convertir en una tupla
 print(len(planetas))                             #longitud
 print( "Marte" in planetas)                      #revisar si un elemento está presente
 planetas.add("Tierra")                           #agregar
@@ -86,10 +110,11 @@ planetas=planetas.union({2,4,6,7,2})             #unir 2 tuplas y ordenarlas
 planetas.discard("Júpiters")                     #eliminar
 planetas.clear()                                 #limpiar el set
 del planetas                                     #eliminar el set
-print(a&b)                                       #muestra las intercepciones {35}
-print(a|b)                                       #une las 2 tuplas {5, 70, 7, 10, 77, 14, 15, 20, 84, 21, 25, 91, 28, 30, 98, 35, 40, 105, 42, 45, 49, 50, 56, 63}
-print(a-b)                                       #resta las 2 tuplas {5, 70, 7, 10, 77, 14, 15, 20, 84, 21, 25, 91, 28, 30, 98, 35, 40, 105, 42, 45, 49, 50, 56, 63}
-print(set([1,1,1,2,3,3,3,3]))                    # convierte array en tupla, no acepta elem repetidos
+print(numeros&numeros)                           #muestra las intercepciones
+print(numeros|numeros)                           #une las 2 tuplas
+print(numeros-numeros)                           #resta las 2 tuplas
+for element in planetas:                         #recorrer tupla
+  print(element)
 # -------------------------------------------------- CODICIONES --------------------------------------------------
 numero = 0
 if numero > 1:
@@ -103,6 +128,8 @@ print("Condicion verdadera") if numero > 1 else print("Condicion falsa")
 # -------------------------------------------------- WHILE ------------------------------------------------
 materias = {'lógica': 6, 'matematica': 8, 'sisop': 7}
 materia = input('dime la materia: ')
+# while True:
+# while counter < 10: 
 while materia:
     nota = materias.get(materia)
     if nota:
@@ -113,6 +140,40 @@ while materia:
 else:
     print('FIN DE SICLO')
 # -------------------------------------------------- FOR ------------------------------------------------
+#array
+my_list = [23, 45, 67, 89 ,43]                          
+for element in my_list:
+  print(element)
+
+#array bidimensional
+people = [{'name': 'nico','age': 34},{'name': 'zule','age': 45},{'name': 'santi','age': 4}]
+for person in people:
+  print('name =>', person['name'])
+
+#matrices
+matriz = [[1,2,3],[4,5,6],[7,8,9]]
+for row in matriz:
+  print(row)
+  for column in row:
+    print(column)
+
+#tuplas
+my_tuple = ('nico', 'juli', 'santi')
+for element in my_tuple:
+  print(element)
+
+#diccionarios 
+product = {
+  'name': 'Camisa',
+  'price': 100,
+  'stock': 89
+}
+for key in product:
+  print(key, '=>', product[key])
+for key, value in product.items():
+  print(key, '=>', value)
+
+#string
 contador = 0
 nombre = 'Pedro'
 for i in nombre:

@@ -1,45 +1,31 @@
-# CRUD Create, Read, Update & Delete
+set_countries = {'col', 'mex', 'bol'}
 
-numbers = [1, 2 , 3 , 4 , 5]
-print(numbers[1])
-numbers[-1] = 10
-print(numbers)
+size = len(set_countries)
+print(size)
 
-numbers.append(700)
-print(numbers)
+print('col' in set_countries)
+print('pe' in set_countries)
 
-numbers.insert(0, 'hola')
-print(numbers)
+# add
+set_countries.add('pe')
+print(set_countries)
+set_countries.add('pe')
+print(set_countries)
 
-numbers.insert(3, 'change')
-print(numbers)
+# update
+set_countries.update({'ar', 'ecua', 'pe'})
+print(set_countries)
 
-tasks = ['todo 1', 'todo 2', 'todo 3']
-new_list = numbers + tasks
-print(new_list)
+# remove
 
-index = new_list.index('todo 2')
-new_list[index] = 'todo changed'
-print(new_list)
+set_countries.remove('col')
+print(set_countries)
 
-new_list.remove('todo 1')
-print(new_list)
-
-new_list.pop()
-print(new_list)
-
-new_list.pop(0)
-print(new_list)
-
-new_list.reverse()
-print(new_list)
-
-numbers_a = [1, 4, 6 , 3]
-numbers_a.sort()
-print(numbers_a)
-
-strings = ['re', 'ab', 'ed']
-strings.sort()
-print(strings)
-
-new_list.sort()
+set_countries.remove('ar')
+set_countries.discard('arg')
+print(set_countries)
+set_countries.add('arg')
+print(set_countries)
+set_countries.clear()
+print(set_countries)
+print(len(set_countries))
