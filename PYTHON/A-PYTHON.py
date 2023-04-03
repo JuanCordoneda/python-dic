@@ -88,17 +88,31 @@ for nombre in diccionario:
   print(nombre + " tiene " + str(diccionario[nombre]) + "años.")
 for key, value in diccionario.items():
   print(key, '=>', value)
-# -------------------------------------------- {SET} --------------------------------------------------
-tupla = {'col', 'mex', 'bol'}                    # conjunto (no se repite y se ordena) 
-tupla = set([1,2,3,4,5,6])                       # {1, 2, 3, 4} 
-tupla = set('hoola')                             # {'h', 'o', 'a', 'l'}
-tupla = {1, 'hola', False, 12.12}                # puede ser mixto. El set se ordena solo, lo importante es lo que tengo dentro.
-tupla = set(('abc','cbv','as','abc'))            # {'as', 'abc', 'cbv'}
-size = len(tupla)                                # obtener el largo
-size.add('arg')                                   # agregar 
 
-print('col' in tupla)                            # true
+numbers_v2 = [element * 2 for element in range(1, 11)]  #for dentro de array: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20
+numbers_v2 = [i * 2 for i in range(1, 11) if i % 2 == 0] #for dentro de array: [4, 8, 12, 16, 20]
+# -------------------------------------------- {SET O CONJUNTOS} --------------------------------------------------
+conju = {'col', 'mex', 'bol'}                    # conjunto (no se repite y se ordena) 
+conju = set([1,2,3,4,5,6])                       # {1, 2, 3, 4} 
+conju = set('hoola')                             # {'h', 'o', 'a', 'l'}
+conju = {1, 'hola', False, 12.12}                # puede ser mixto. El set se ordena solo, lo importante es lo que tengo dentro.
+conju = set(('abc','cbv','as','abc'))            # {'as', 'abc', 'cbv'}
+size = len(conju)                                # obtener el largo
+size.add('arg')                                  # agregar 
+conju.update({'ar', 'ecua', 'pe'})               # agregar muchos
+conju = conju.union('conju2')                    # unir 2 conjus
+conju = conju | 'conju2'                         # unir 2 conjus
+set_c = conju.intersection('conju2')             # interseccionar las igualdades
+print(conju & 'conju2')                          # interseccionar las igualdades
+set_c = conju.difference('conju2')               # interseccionar las diferencias (muestra elementos que no coinciden de conju1)
+print(conju - 'conju2')                          # interseccionar las diferencias (muestra elementos que no coinciden de conju1)
+set_c = conju.symmetric_difference('conju2')     # interseccionar las diferencias (muestra elementos que no coinciden de las 2 conjus)
+print(conju ^ 'conju2')                          # interseccionar las diferencias (muestra elementos que no coinciden de las 2 conjus)
+conju.remove('col')                              # eliminar
+conju.discard('arg')                             # eliminar
+conju.clear()                                    # vaciar
 
+print('col' in conju)                            # true
 # -------------------------------------------- (TUPLAS) --------------------------------------------------
 planetas = ("Marte", "Júpiter", "Venus")         #Estructura de datos inmutables que contiene una secuencia ordenada de elementos los elementos no se pueden modificar, pero si agregar nuevos o eliminar
 numeros = (1, 2, 3, 4)                           
@@ -156,6 +170,9 @@ for row in matriz:
   print(row)
   for column in row:
     print(column)
+
+numbers_v2 = [element * 2 for element in range(1, 11)]  #for dentro de array: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+numbers_v2 = [i * 2 for i in range(1, 11) if i % 2 == 0] #for dentro de array: [4, 8, 12, 16, 20]
 
 #tuplas
 my_tuple = ('nico', 'juli', 'santi')

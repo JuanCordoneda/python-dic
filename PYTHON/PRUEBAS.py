@@ -1,31 +1,19 @@
-set_countries = {'col', 'mex', 'bol'}
 
-size = len(set_countries)
-print(size)
+numbers = []
+for element in range(1, 11):
+  numbers.append(element * 2)
 
-print('col' in set_countries)
-print('pe' in set_countries)
+print(numbers)
 
-# add
-set_countries.add('pe')
-print(set_countries)
-set_countries.add('pe')
-print(set_countries)
+numbers_v2 = [element * 2 for element in range(1, 11)]
+print(numbers_v2)
 
-# update
-set_countries.update({'ar', 'ecua', 'pe'})
-print(set_countries)
+numbers = []
+for i in range(1, 11):
+  if i % 2 == 0:
+    numbers.append(i * 2)
 
-# remove
+print(numbers)
 
-set_countries.remove('col')
-print(set_countries)
-
-set_countries.remove('ar')
-set_countries.discard('arg')
-print(set_countries)
-set_countries.add('arg')
-print(set_countries)
-set_countries.clear()
-print(set_countries)
-print(len(set_countries))
+numbers_v2 = [i * 2 for i in range(1, 11) if i % 2 == 0]
+print(numbers_v2)
