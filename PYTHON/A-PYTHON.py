@@ -57,10 +57,13 @@ my_list = list('tupla')               # convertir tupla en lista
 
 for i in lista:                       # RECORRER ARRAY
     print(i*'+')
+for person in people:
+    print('name =>', person['name'])
+
 #array bidimensional
 people = [{'name': 'nico','age': 34},{'name': 'zule','age': 45},{'name': 'santi','age': 4}]
-for person in people:
-  print('name =>', person['name'])
+print(list(zip(['nico', 'zule', 'santi'], [12, 56, 98]))) #UNIR 2 ARRAY EN 1 ARRAY
+
 # -------------------------------------------- DICCIONARIOS -----------------------------------------------------------
 diccionario = {                                       #un diccionario está compuesto de llave,valor (key,value)               
     "IDE": "ELEMENTO 1",
@@ -113,6 +116,9 @@ conju.discard('arg')                             # eliminar
 conju.clear()                                    # vaciar
 
 print('col' in conju)                            # true
+edades = {'juanjo': 35, 'pedro': 45, 'valeria': 24}   #for
+for nombre in edades:
+  print(nombre + " tiene " + str(edades[nombre]) + "años.")
 # -------------------------------------------- (TUPLAS) --------------------------------------------------
 planetas = ("Marte", "Júpiter", "Venus")         #Estructura de datos inmutables que contiene una secuencia ordenada de elementos los elementos no se pueden modificar, pero si agregar nuevos o eliminar
 numeros = (1, 2, 3, 4)                           
