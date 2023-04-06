@@ -1,31 +1,16 @@
+def increment(x):
+  return x + 1
 
-dict = {}
-for i in range(1, 5):
-  dict[i] = i * 2
 
-print(dict)
+increment_v2 = lambda x: x + 1
 
-dict_v2 = { i: i * 2 for i in range(1, 5)}
-print(dict_v2)
+result = increment(10)
+print(11)
 
-import random
-countries = ['col', 'mex', 'bol', 'pe']
-population = {}
-for country in countries:
-  population[country] = random.randint(1, 100)
+result = increment_v2(20)
+print(result)
 
-print(population)
+full_name = lambda name, last_name: f'Full name is {name.title()} {last_name.title()}'
 
-population_v2 = { country: random.randint(1, 100)  for country in countries}
-print(population_v2)
-names = ['nico', 'zule', 'santi']
-ages = [12, 56, 98]
-
-print(list(zip(names, ages)))
-print(list(zip(names, ages)))
-print(list(zip(names, ages)))
-print(
-list(zip(names, ages)))
-
-new_dict = {name: age for (name, age) in zip(names, ages)}
-print(new_dict)
+text = full_name('nicolas', 'perez casas')
+print(text)

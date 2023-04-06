@@ -64,6 +64,8 @@ for person in people:
 people = [{'name': 'nico','age': 34},{'name': 'zule','age': 45},{'name': 'santi','age': 4}]
 print(list(zip(['nico', 'zule', 'santi'], [12, 56, 98]))) #UNIR 2 ARRAY EN 1 ARRAY
 
+numbers_v2 = [element * 2 for element in range(1, 11)]  #for dentro de array: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+numbers_v2 = [i * 2 for i in range(1, 11) if i % 2 == 0] #for dentro de array: [4, 8, 12, 16, 20]
 # -------------------------------------------- DICCIONARIOS -----------------------------------------------------------
 diccionario = {                                       #un diccionario está compuesto de llave,valor (key,value)               
     "IDE": "ELEMENTO 1",
@@ -92,8 +94,8 @@ for nombre in diccionario:
 for key, value in diccionario.items():
   print(key, '=>', value)
 
-numbers_v2 = [element * 2 for element in range(1, 11)]  #for dentro de array: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20
-numbers_v2 = [i * 2 for i in range(1, 11) if i % 2 == 0] #for dentro de array: [4, 8, 12, 16, 20]
+new_dict = {name: age for (name, age) in zip(['nico', 'zule', 'santi'], [12, 56, 98])} #UNIR 2 ARRAYS EN 1 DICCIONARIO
+population_v2 = { country: random.randint(1, 100)  for country in ['col', 'mex', 'bol', 'pe']} #{'col': 47, 'mex': 64, 'bol': 66, 'pe': 17}
 # -------------------------------------------- {SET O CONJUNTOS} --------------------------------------------------
 conju = {'col', 'mex', 'bol'}                    # conjunto (no se repite y se ordena) 
 conju = set([1,2,3,4,5,6])                       # {1, 2, 3, 4} 
@@ -217,7 +219,8 @@ for i in range(10,0,-1):                            #rangos entre 10,1
     print(i)
 # -------------------------------------------------- FUNCIONES --------------------------------------------------
 def cualquiera(a, b, c, d=10, e=20):
-    print(a, b*c, d + e)
+   return a, b*c, d + e
+result, width, text = cualquiera(1,2,3)
 
 def tupla(*a):
     print(a)
