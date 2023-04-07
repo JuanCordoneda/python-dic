@@ -55,14 +55,19 @@ suma=sum(lista)                       # SUMA TODOS LOS VALORES DEL ARRAY
 print(lista[:3])                      # imprime todos los 0,1,2
 my_list = list('tupla')               # convertir tupla en lista
 
-for i in lista:                       # RECORRER ARRAY
-    print(i*'+')
-for person in people:
-    print('name =>', person['name'])
+#MAP
+print(list(map(lambda i: i * 2, [1, 2, 3, 4])))    #[2, 4, 6, 8]
+print(list(map(lambda x, y: x + y, [1, 2, 3, 4], [5, 6, 7]))) # [6, 8, 10]
 
 #array bidimensional
 people = [{'name': 'nico','age': 34},{'name': 'zule','age': 45},{'name': 'santi','age': 4}]
 print(list(zip(['nico', 'zule', 'santi'], [12, 56, 98]))) #UNIR 2 ARRAY EN 1 ARRAY
+
+# RECORRER ARRAY
+for i in lista:                       
+    print(i*'+')
+for person in people:
+    print('name =>', person['name'])
 
 numbers_v2 = [element * 2 for element in range(1, 11)]  #for dentro de array: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 numbers_v2 = [i * 2 for i in range(1, 11) if i % 2 == 0] #for dentro de array: [4, 8, 12, 16, 20]
@@ -96,6 +101,15 @@ for key, value in diccionario.items():
 
 new_dict = {name: age for (name, age) in zip(['nico', 'zule', 'santi'], [12, 56, 98])} #UNIR 2 ARRAYS EN 1 DICCIONARIO
 population_v2 = { country: random.randint(1, 100)  for country in ['col', 'mex', 'bol', 'pe']} #{'col': 47, 'mex': 64, 'bol': 66, 'pe': 17}
+
+#DICCIONARIOS MAP
+items = [{'product': 'camisa','price': 100,},{'product': 'pantalones','price': 300},{'product': 'pantalones 2','price': 200}]
+print(list(map(lambda item: item['price'], items))) #ITERA Y SACA LOS PRECIOS:[100, 300, 200]
+
+def add_taxes(item):
+  item['taxes'] = item['price'] * .19 #MODIFICA VALORES
+  return item
+print(list(map(add_taxes, items))) #[{'product': 'camisa', 'price': 100, 'taxes': 19.0}, {'product': 'pantalones', 'price': 300, 'taxes': 57.0}, {'product': 'pantalones 2', 'price': 200, 'taxes': 38.0}]
 # -------------------------------------------- {SET O CONJUNTOS} --------------------------------------------------
 conju = {'col', 'mex', 'bol'}                    # conjunto (no se repite y se ordena) 
 conju = set([1,2,3,4,5,6])                       # {1, 2, 3, 4} 
@@ -233,6 +247,34 @@ diccionario(a=10,b=20)           #GENERADOR DE DICCIONARIOS
 def d(*a,**b):
     print(a,b)
 d(1,'hola',3,4,a=20,b=30)          #MEZCLADOS
+
+#PARAMETROS EN FUNCIONES
+def increment(x):
+  return x + 1
+def high_ord_func(x, func):
+  return x + func(x)
+print(high_ord_func(2, increment))        # 2 + (2 + 1)
+# -------------------------------------------------- FUNCIONES LAMBDA ------------------------------------------------
+#EJ 1
+increment_v2 = lambda x: x + 1          #PRIMER ELEMENTO PARAMETRO
+print(increment_v2(20)) #21
+#EJ 2
+full_name = lambda name, last_name: f'Full name is {name.title()} {last_name.title()}'
+print(full_name('nicolas', 'perez casas')) #Full name is Nicolas Perez Casas
+#FUNCIONES CON FUNCION COMO PARAMETRO
+high_ord_func_v2 = lambda x, func: x + func(x) 
+print(high_ord_func_v2(2, lambda x: x +1))  #5  (2+(2+1))
+print(high_ord_func_v2(2, lambda x: x + 2)) #6  (2+(2+2))
+print(high_ord_func_v2(2, lambda x: x * 5)) #12 (2+(2*5))
+
+#ARRAY
+print(list(map(lambda i: i * 2, [1, 2, 3, 4])))    #[2, 4, 6, 8]
+print(list(map(lambda x, y: x + y, [1, 2, 3, 4], [5, 6, 7]))) # [6, 8, 10]
+
+#DICCIONARIOS
+items = [{'product': 'camisa','price': 100,},{'product': 'pantalones','price': 300},{'product': 'pantalones 2','price': 200}]
+print(list(map(lambda item: item['price'], items))) #ITERA Y SACA LOS PRECIOS:[100, 300, 200]
+
 # -------------------------------------------------- EXCEPCIONES ------------------------------------------------
 try:
     print('try') 
