@@ -1,18 +1,24 @@
 # -------------------------------------------------- IMPORTAR --------------------------------------------------
 # import files.origen as aritmetica
 # from files.origen import *
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- PRINT --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 name='JUAN CRUZ'
 last_name='CORDONEDA'
 template = "Hola, mi nombre es " + name + " y mi apellido es " + last_name
 template = "Hola, mi nombre es {} y mi apellido es {}".format(name, last_name)
 template = f"Hola, mi nombre es {name} y mi apellido es {last_name}"
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- VARIABLES --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 nombre = 'juan'
 print(type(nombre))                   # muestra el tipo de variable
 apellido = input('dime tu nombre: ')  # input para el usuario
 apellido = int(apellido)              # modifiar el tipo de variable
+# ---------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------- VARIABLES STRING --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 MI_CONSTANTE = "Valor de mi constante"
 inverted = nombre[::-1]               # invierte las palabras
 extraer = nombre[1:8]                 # recorta las palabras
@@ -33,9 +39,13 @@ nombre.split()                        # separa x palabras utilizando espacios
 nombre.strip()                        # borrar espacios sobrantes al pcipo y al final
 nombre.replace('Python', 'Go')        # cambia letra o palabra x otra dentro de un string
 nombre.partition('i')                 # particiona, devuelve=('jav', 'i', 'er') 
+# ---------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------- VARIBALES INTEGER --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 round(0.8888,2)                       # REDONDEAR: 2 es el número de números atras de la coma
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- ARRAY -----------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 lista=[1, 2, 3, 4, 5]
 rango = list( range(10) )             #[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 lista=lista.sort()                    # ORDENAR ELEMENTOS DEL ARRAY
@@ -55,13 +65,17 @@ suma=sum(lista)                       # SUMA TODOS LOS VALORES DEL ARRAY
 print(lista[:3])                      # imprime todos los 0,1,2
 my_list = list('tupla')               # convertir tupla en lista
 
+#array bidimensional
+people = [{'name': 'nico','age': 34},{'name': 'zule','age': 45},{'name': 'santi','age': 4}]
+print(list(zip(['nico', 'zule', 'santi'], [12, 56, 98]))) #UNIR 2 ARRAY EN 1 ARRAY
+
 #MAP
 print(list(map(lambda i: i * 2, [1, 2, 3, 4])))    #[2, 4, 6, 8]
 print(list(map(lambda x, y: x + y, [1, 2, 3, 4], [5, 6, 7]))) # [6, 8, 10]
 
-#array bidimensional
-people = [{'name': 'nico','age': 34},{'name': 'zule','age': 45},{'name': 'santi','age': 4}]
-print(list(zip(['nico', 'zule', 'santi'], [12, 56, 98]))) #UNIR 2 ARRAY EN 1 ARRAY
+#FILTER
+new_numbers = list(filter(lambda x: x % 2 == 0, [1,2,3,4,5])) #ARRAY CON NUMEROS PARES
+new_list = list(filter(lambda item: item['name'] == 'nico', people)) #ARRAY QUE TENGA 'nico' como nombre
 
 # RECORRER ARRAY
 for i in lista:                       
@@ -71,7 +85,9 @@ for person in people:
 
 numbers_v2 = [element * 2 for element in range(1, 11)]  #for dentro de array: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 numbers_v2 = [i * 2 for i in range(1, 11) if i % 2 == 0] #for dentro de array: [4, 8, 12, 16, 20]
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------- DICCIONARIOS -----------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 diccionario = {                                       #un diccionario está compuesto de llave,valor (key,value)               
     "IDE": "ELEMENTO 1",
     'langs': ['python', 'javascript'],
@@ -100,9 +116,9 @@ for key, value in diccionario.items():
   print(key, '=>', value)
 
 new_dict = {name: age for (name, age) in zip(['nico', 'zule', 'santi'], [12, 56, 98])} #UNIR 2 ARRAYS EN 1 DICCIONARIO
-population_v2 = { country: random.randint(1, 100)  for country in ['col', 'mex', 'bol', 'pe']} #{'col': 47, 'mex': 64, 'bol': 66, 'pe': 17}
+population_v2 = { country: random.randint(1, 100)  for country in ['col', 'mex', 'bol', 'pe']} #CREAR DICCIONARIO {'col': 47, 'mex': 64, 'bol': 66, 'pe': 17}
 
-#DICCIONARIOS MAP
+#MAP
 items = [{'product': 'camisa','price': 100,},{'product': 'pantalones','price': 300},{'product': 'pantalones 2','price': 200}]
 print(list(map(lambda item: item['price'], items))) #ITERA Y SACA LOS PRECIOS:[100, 300, 200]
 
@@ -110,7 +126,9 @@ def add_taxes(item):
   item['taxes'] = item['price'] * .19 #MODIFICA VALORES
   return item
 print(list(map(add_taxes, items))) #[{'product': 'camisa', 'price': 100, 'taxes': 19.0}, {'product': 'pantalones', 'price': 300, 'taxes': 57.0}, {'product': 'pantalones 2', 'price': 200, 'taxes': 38.0}]
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------- {SET O CONJUNTOS} --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 conju = {'col', 'mex', 'bol'}                    # conjunto (no se repite y se ordena) 
 conju = set([1,2,3,4,5,6])                       # {1, 2, 3, 4} 
 conju = set('hoola')                             # {'h', 'o', 'a', 'l'}
@@ -135,7 +153,9 @@ print('col' in conju)                            # true
 edades = {'juanjo': 35, 'pedro': 45, 'valeria': 24}   #for
 for nombre in edades:
   print(nombre + " tiene " + str(edades[nombre]) + "años.")
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------- (TUPLAS) --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 planetas = ("Marte", "Júpiter", "Venus")         #Estructura de datos inmutables que contiene una secuencia ordenada de elementos los elementos no se pueden modificar, pero si agregar nuevos o eliminar
 numeros = (1, 2, 3, 4)                           
 a=tuple([1,2,3,4,5,6])                           #convertir en una tupla
@@ -151,7 +171,9 @@ print(numeros|numeros)                           #une las 2 tuplas
 print(numeros-numeros)                           #resta las 2 tuplas
 for element in planetas:                         #recorrer tupla
   print(element)
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- CODICIONES --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 numero = 0
 if numero > 1:
     print('ganaste')
@@ -161,7 +183,9 @@ else:
     print('else')
 # IF REDUCIDO
 print("Condicion verdadera") if numero > 1 else print("Condicion falsa") 
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- WHILE ------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 materias = {'lógica': 6, 'matematica': 8, 'sisop': 7}
 materia = input('dime la materia: ')
 # while True:
@@ -175,7 +199,9 @@ while materia:
     materia = input('dime la materia: ')
 else:
     print('FIN DE SICLO')
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- FOR ------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 #array
 my_list = [23, 45, 67, 89 ,43]                          
 for element in my_list:
@@ -231,7 +257,9 @@ for x in range(1000):
 
 for i in range(10,0,-1):                            #rangos entre 10,1
     print(i)
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- FUNCIONES --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 def cualquiera(a, b, c, d=10, e=20):
    return a, b*c, d + e
 result, width, text = cualquiera(1,2,3)
@@ -254,7 +282,9 @@ def increment(x):
 def high_ord_func(x, func):
   return x + func(x)
 print(high_ord_func(2, increment))        # 2 + (2 + 1)
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- FUNCIONES LAMBDA ------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 #EJ 1
 increment_v2 = lambda x: x + 1          #PRIMER ELEMENTO PARAMETRO
 print(increment_v2(20)) #21
@@ -267,15 +297,19 @@ print(high_ord_func_v2(2, lambda x: x +1))  #5  (2+(2+1))
 print(high_ord_func_v2(2, lambda x: x + 2)) #6  (2+(2+2))
 print(high_ord_func_v2(2, lambda x: x * 5)) #12 (2+(2*5))
 
-#ARRAY
+#ARRAY MAP
 print(list(map(lambda i: i * 2, [1, 2, 3, 4])))    #[2, 4, 6, 8]
 print(list(map(lambda x, y: x + y, [1, 2, 3, 4], [5, 6, 7]))) # [6, 8, 10]
+#ARRAY FILTER
+new_numbers = list(filter(lambda x: x % 2 == 0, [1,2,3,4,5])) #ARRAY CON NUMEROS PARES
+new_list = list(filter(lambda item: item['name'] == 'nico', people)) #ARRAY QUE TENGA 'nico' como nombre
 
 #DICCIONARIOS
 items = [{'product': 'camisa','price': 100,},{'product': 'pantalones','price': 300},{'product': 'pantalones 2','price': 200}]
 print(list(map(lambda item: item['price'], items))) #ITERA Y SACA LOS PRECIOS:[100, 300, 200]
-
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- EXCEPCIONES ------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 try:
     print('try') 
 except NameError:
@@ -287,7 +321,9 @@ except AttributeError:
 finally:                                             #el finally se ejecuta SIEMPRE
     print('finally')    
     # exit()
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- POO --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 class Persona:
     variable_clase = "1"    #no es necesario crear un objeto para llamarla
     
@@ -322,7 +358,9 @@ persona1.set_edad(20)           #GET
 print(persona1.get_edad())      #SET
 print(persona1.mostrar())       #acceder a metodos
 print(id(persona1))             #acceder a id
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- HERENCIA --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 class Persona:
     def __init__(self, nombre, edad):
         self.nombre = nombre
@@ -348,7 +386,9 @@ print(empleado)
 empleado.nombre = "Karla Ivone"
 empleado.sueldo = 1000.00
 print(empleado)
-# -------------------------------------------------- HERENCIA MÚLTIPLE--------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------- HERENCIA MÚLTIPLE --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 class FiguraGeometrica:
     def __init__(self, ancho, alto):
         self.__ancho = ancho
@@ -374,8 +414,9 @@ print(cuadrado.area())
 print('el color es: ',cuadrado.color)
 #Method Resolution Order
 print(Cuadrado.mro())
-
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- POLIMORFISMO --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 class coche():
     def __str__(self):
         return 'me desplazo utilizando 4 ruedas'
@@ -393,7 +434,9 @@ def desplazamientovehiculo(vehiculo):     #vehiculo tiene q tener el lugar de la
 
 miauto=coche()
 desplazamientovehiculo(miauto)    
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- CLASES ABSTRACTAS --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 #ABC = Abstract Base Class
 from abc import ABC, abstractmethod    #SE LLAMA LA LIBRERIA ABSTRACTA
 class FiguraGeometrica(ABC):
@@ -407,7 +450,9 @@ class FiguraGeometrica(ABC):
 
 Rectangulo=FiguraGeometrica(30,20)
 print('area:',Rectangulo.area())
+# ---------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------- SQL -----------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 import psycopg2
 
 conexion = psycopg2.connect(user='postgres',
@@ -426,8 +471,9 @@ print(registros)                                               #se imprime fetch
 
 cursor.close()
 conexion.close()
-
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- SQL (INSERT / UPDATE / DELETE)-------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 cursor = conexion.cursor()
 # ###############EJEMPLO INDIVIDUAL#######################
 sentencia = 'INSERT INTO persona(nombre, apellido, apodo) VALUES(%s, %s, %s)'
@@ -473,7 +519,9 @@ except Exception as e:                                     #CATCH EXCEPTION
 finally:
     cursor.close()
     conexion.close()
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- RECORRER SELECT --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 sentencia = 'SELECT * FROM persona WHERE id_persona IN %s'                   
 entrada = input("Proporciona las pk a buscar (separado por comas): ")       
 tupla = tuple(entrada.split(','))                                           #creador de tupla
@@ -487,9 +535,10 @@ print(registros)
 
 cursor.close()
 conexion.close()
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- FECHAS --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 from datetime import *                               # IMPORTA FECHA
-
 hoy = date.today()                                   # dia actual
 fecha = datetime.strptime('6/10/1999', "%d/%m/%Y")   # convertir fecha en objeto
 año=fecha.year
@@ -497,7 +546,15 @@ mes=fecha.month
 dia=fecha.day
 hora = time(12,00)                                   #son las 12.00
 hoy= date.today().strftime('%d,%m,%y')               #hora actual
+
+# SEGUNDA OPCION
+import time
+local = time.localtime()
+result = time.asctime(local)
+print(result) #FECHA ACTUAL
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- ARCHIVOS --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 try:
     archivoleer=open("prueba.txt",'r')          #leer abrir (READ)
     archivoagregar = open("prueba.txt", "a")    #escribir (APPEND)
@@ -514,8 +571,33 @@ except Exception as e:
     print('ocurrió un error',e) 
 finally:
     archivosobre.close() #después de close ya no podemos trabajar con el archivo
-# -------------------------------------------------- RANDOM --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------- MODULOS --------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
 import random
 random.randint(1,100)
 options = ('piedra', 'papel', 'tijera')
 computer_option = random.choice(options)
+population_v2 = { country: random.randint(1, 100)  for country in ['col', 'mex', 'bol', 'pe']} #CREAR DICCIONARIO {'col': 47, 'mex': 64, 'bol': 66, 'pe': 17}
+
+#MUESTRA LA RUTA
+import sys 
+print(sys.path) 
+
+#EXPRESIONES REGULARES
+import re
+text = 'Mi numero de telefono es 311 123 121, el codigo del pais es 57, mi numero de la suerte 3'
+result = re.findall('[0-9]+', text) #EJECUTA EXPRESION
+print(result)
+
+#TIEMPO
+import time
+local = time.localtime()
+result = time.asctime(local)
+print(result) #FECHA ACTUAL
+
+#MANEJADOR DE LISTAS
+import collections
+numbers = [1,1,2,1,2,1,4,5,3,3,21]
+counter = collections.Counter(numbers) #FRECUENCIA DE NUMEROS EN LA LISTA {1: 4, 2: 2, 3: 2, 4: 1, 5: 1, 21: 1}
+print(counter)
