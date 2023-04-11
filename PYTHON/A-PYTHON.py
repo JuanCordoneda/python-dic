@@ -4,8 +4,8 @@
 import modulo1
 print(modulo1.data)
 modulo1.ejecutar() #ejecuta metodo
-if __name__ == '__A-PYTHON__':
-  print('IMPRIME AL EJECUTARSE EL ARCHIVO __A-PYTHON__')
+if __name__ == '__main__':
+  print('IMPRIME AL EJECUTARSE EL ARCHIVO ')
 # ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- PRINT ------------------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------------------
@@ -326,12 +326,12 @@ print(list(map(lambda item: item['price'], items))) #ITERA Y SACA LOS PRECIOS:[1
 # ---------------------------------------------------------------------------------------------------------------------
 try:
     print('try') 
-except NameError:
-    print('NameError') 
-except TypeError:
-    print('TypeError')
-except AttributeError:
-    print('AttributeError')
+except ZeroDivisionError as error:
+  print(error)
+except AssertionError as error:
+  print(error)
+except Exception as error:
+  print(error)
 finally:                                             #el finally se ejecuta SIEMPRE
     print('finally')    
     # exit()
@@ -609,6 +609,7 @@ print(result) #FECHA ACTUAL
 # ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- ARCHIVOS ---------------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------------------
+#https://platzi.com/clases/4260-python-funciones/55086-escribir-en-un-archivo/
 try:
     archivoleer=open("prueba.txt",'r')          #leer abrir (READ)
     archivoagregar = open("prueba.txt", "a")    #escribir (APPEND)
@@ -616,15 +617,69 @@ try:
 
     print(archivoleer.read())                   #leer
     print(archivoleer.read(5))                  #la funcion me va a leeer solo 5 caracteres
-    print(archivoleer.readline())               #lee solo la primer línea
+    print(archivoleer.readline())               #lee solo la primer línea, mientras mas lo pones mas lee
     print(archivoleer.readlines())              #crea una lista con cada línea de nuestro archivo
     archivoagregar.write("Agregamos info\n")           #ESTE METODO SOBREESCRIBE ARCHIVOS
     archivoagregar.remove('ruta_archivo.txt')          #ELIMINAR ARCHIVOS
-    archivosobre.write("Agregamos info al archivo\n")
+    archivosobre.write("Agregamos info al archivo\n")  #ESTE METODO AGREGA TEXTO
 except Exception as e:     
     print('ocurrió un error',e) 
 finally:
     archivosobre.close() #después de close ya no podemos trabajar con el archivo
+
+#EJEMPLO 1
+file = open('./ruta_archivo.txt')
+print(file.read())
+print(file.readline())
+print(file.readline())
+print(file.readline())
+print(file.readline())
+file.close()
+#EJEMPLO 2
+with open('./text.txt') as file:
+  for line in file:
+    print(line)
+# ---------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------- LEER CSV ---------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+#https://platzi.com/clases/4260-python-funciones/55087-leer-un-csv/
+import csv
+def read_csv(path):
+  with open(path, 'r') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',')
+    header = next(reader)
+    data = []
+    for row in reader:
+      iterable = zip(header, row)
+      country_dict = {key: value for key, value in iterable}
+      data.append(country_dict)
+    return data
+
+if __name__ == '__main__':
+  data = read_csv('./app/data.csv')
+  print(data[0])
+# ---------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------- GRAFICAS ---------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+#https://platzi.com/clases/4260-python-funciones/55088-creando-una-grafica/
+import matplotlib.pyplot as plt
+
+def generate_bar_chart(labels, values):
+  fig, ax = plt.subplots()
+  ax.bar(labels, values)
+  plt.show()
+
+def generate_pie_chart(labels, values):
+  fig, ax = plt.subplots()
+  ax.pie(values, labels=labels)
+  ax.axis('equal')
+  plt.show()
+
+if __name__ == '__main__':
+  labels = ['a', 'b', 'c']
+  values = [10, 40, 800]
+  # generate_bar_chart(labels, values)
+  generate_pie_chart(labels, values)
 # ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- MODULOS ----------------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------------------
