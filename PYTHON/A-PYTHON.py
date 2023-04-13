@@ -710,3 +710,12 @@ import collections
 numbers = [1,1,2,1,2,1,4,5,3,3,21]
 counter = collections.Counter(numbers) #FRECUENCIA DE NUMEROS EN LA LISTA {1: 4, 2: 2, 3: 2, 4: 1, 5: 1, 21: 1}
 print(counter)
+# ---------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------- PIP ----------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+# PIP es el gestor de paquetes de python, es posible buscar librerías en la pagina pypi.org.
+
+# Ver la versión de pip pip3 -v.
+# Instalación de paquetes pip3 install <libreria>.
+# Listar las librerías que se tienen en el entorno de python global pip3 list.
+# Listar todas las librerías de python instaladas por el usuario pip3 freeze.
