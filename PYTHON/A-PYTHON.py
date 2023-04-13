@@ -723,6 +723,9 @@ import collections
 numbers = [1,1,2,1,2,1,4,5,3,3,21]
 counter = collections.Counter(numbers) #FRECUENCIA DE NUMEROS EN LA LISTA {1: 4, 2: 2, 3: 2, 4: 1, 5: 1, 21: 1}
 print(counter)
+
+# PANDAS: https://platzi.com/clases/4261-python-pip/55133-pandas/
+# FAST API: https://platzi.com/clases/4261-python-pip/55134-python-para-backend-web-server-con-fastapi/
 # ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- PIP ----------------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------------------
