@@ -590,6 +590,19 @@ print(registros)
 cursor.close()
 conexion.close()
 # ---------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------- REQUESTS ---------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+import requests #pip3 install requests
+
+def get_categories():
+    r = requests.get('https://api.escuelajs.co/api/v1/categories') #busca la request
+    print(r.status_code) #estado
+    print(r.text)  #muestra todo el texto
+    print(type(r.text)) # muestra el formato
+    categories = r.json() #lo convierte en un json
+    for category in categories:
+        print(category['name'])
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- FECHAS -----------------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------------------
 from datetime import *                               # IMPORTA FECHA
@@ -719,3 +732,6 @@ print(counter)
 # Instalación de paquetes pip3 install <libreria>.
 # Listar las librerías que se tienen en el entorno de python global pip3 list.
 # Listar todas las librerías de python instaladas por el usuario pip3 freeze.
+# Verificar donde esta python y pip which python3 o which pip3
+
+#ambiente virtual= https://platzi.com/clases/4261-python-pip/55130-usando-entornos-virtuales-en-python/
