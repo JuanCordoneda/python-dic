@@ -47,11 +47,33 @@ nombre.partition('i')                 # particiona, devuelve=('jav', 'i', 'er')
 # ---------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------- VARIBALES INTEGER ---------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------------------
+numero=10
 round(0.8888,2)                       # REDONDEAR: 2 es el número de números atras de la coma
+abs(numero)                           # Devuelve el valor absoluto de un número entero.
+divmod(numero, y)                     # Devuelve el cociente y el resto de la división entera de dos números.
+pow(numero, y)                        # Devuelve el resultado de elevar un número a una potencia.
+int(numero[, base])                   # Convierte un número o una cadena en un entero.
+hex(numero)                           # Convierte un entero en una cadena henumeroadecimal.
+oct(numero)                           # Convierte un entero en una cadena octal.
+bin(numero)                           # Convierte un entero en una cadena binaria.
+chr(numero)                           # Devuelve el carácter Unicode correspondiente al número entero.
+ord(numero)                           # Devuelve el valor Unicode del carácter especificado.
+
 my_iter = iter(range(1, 4))
 print(next(my_iter))#1
 print(next(my_iter))#2
 print(next(my_iter))#3
+
+max(my_iter[, key])                   # Devuelve el elemento más grande en el iterable o el máximo de dos o más argumentos.
+min(my_iter[, key])                   # Devuelve el elemento más pequeño en el iterable o el mínimo de dos o más argumentos.
+sum(my_iter[, start])                 # Devuelve la suma de todos los elementos en el iterable.
+len(my_iter)                          # Devuelve la longitud de la cadena, lista, tupla, diccionario o conjunto especificado.
+enumerate(my_iter[, start])           # Devuelve un objeto enumerado que contiene pares de índices y valores de un iterable.
+range([start], stop[, step])          # Devuelve un objeto de rango que produce una secuencia de enteros desde el inicio hasta el final, incrementando en incrementos de paso.
+zip(*my_iter)                         # Combina los elementos de varios iterables en tuplas de elementos correspondientes.
+all(my_iter)                          # Devuelve True si todos los elementos en el iterable son verdaderos.
+any(my_iter)                          # Devuelve True si al menos uno de los elementos en el iterable es verdadero.
+sorted(my_iter[, key][, reverse])     # Devuelve una lista ordenada de elementos en el iterable, según el criterio especificado por la función key.
 # ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- FECHAS -----------------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------------------
