@@ -53,6 +53,23 @@ print(next(my_iter))#1
 print(next(my_iter))#2
 print(next(my_iter))#3
 # ---------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------- FECHAS -----------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+from datetime import *                               # IMPORTA FECHA
+hoy = date.today()                                   # dia actual
+fecha = datetime.strptime('6/10/1999', "%d/%m/%Y")   # convertir fecha en objeto
+año=fecha.year
+mes=fecha.month
+dia=fecha.day
+hora = time(12,00)                                   #son las 12.00
+hoy= date.today().strftime('%d,%m,%y')               #hora actual
+
+# SEGUNDA OPCION
+import time
+local = time.localtime()
+result = time.asctime(local)
+print(result) #FECHA ACTUAL
+# ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- ARRAY ------------------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------------------
 lista=[1, 2, 3, 4, 5]
@@ -603,22 +620,71 @@ def get_categories():
     for category in categories:
         print(category['name'])
 # ---------------------------------------------------------------------------------------------------------------------
-# -------------------------------------------------- FECHAS -----------------------------------------------------------
+# -------------------------------------------------- FastAPI ----------------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------------------
-from datetime import *                               # IMPORTA FECHA
-hoy = date.today()                                   # dia actual
-fecha = datetime.strptime('6/10/1999', "%d/%m/%Y")   # convertir fecha en objeto
-año=fecha.year
-mes=fecha.month
-dia=fecha.day
-hora = time(12,00)                                   #son las 12.00
-hoy= date.today().strftime('%d,%m,%y')               #hora actual
+# https://platzi.com/clases/4261-python-pip/55134-python-para-backend-web-server-con-fastapi/
+# pip install fastapi
+# pip3 install "uvicorn[standard]"
+# python -m uvicorn PRUEBAS:app --reload #LEVANTAR EL ENTORNO
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 
-# SEGUNDA OPCION
+app = FastAPI()
+
+@app.get('/')
+def get_list():
+    return [1,2,3,]
+
+@app.get('/contact', response_class=HTMLResponse)
+def get_list():
+    return """
+        <h1>Hola soy una pagina</h1>
+        <p>soy un parrafo</p>
+    """
+# PANDAS: https://platzi.com/clases/4261-python-pip/55133-pandas/
+# FAST API: https://platzi.com/clases/4261-python-pip/55134-python-para-backend-web-server-con-fastapi/
+# DOCKER: https://platzi.com/clases/4261-python-pip/55136-instalacion-de-docker/
+# ---------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------- PIP ----------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+# PIP es el gestor de paquetes de python, es posible buscar librerías en la pagina pypi.org.
+
+# Ver la versión de pip pip3 -v.
+# Instalación de paquetes pip3 install <libreria>.
+# Listar las librerías que se tienen en el entorno de python global pip3 list.
+# Listar todas las librerías de python instaladas por el usuario pip3 freeze.
+# Verificar donde esta python y pip which python3 o which pip3
+#ambiente virtual= https://platzi.com/clases/4261-python-pip/55130-usando-entornos-virtuales-en-python/
+# ---------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------- MODULOS ----------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+import random
+random.randint(1,100)
+options = ('piedra', 'papel', 'tijera')
+computer_option = random.choice(options)
+population_v2 = { country: random.randint(1, 100)  for country in ['col', 'mex', 'bol', 'pe']} #CREAR DICCIONARIO {'col': 47, 'mex': 64, 'bol': 66, 'pe': 17}
+
+#MUESTRA LA RUTA
+import sys 
+print(sys.path) 
+
+#EXPRESIONES REGULARES
+import re
+text = 'Mi numero de telefono es 311 123 121, el codigo del pais es 57, mi numero de la suerte 3'
+result = re.findall('[0-9]+', text) #EJECUTA EXPRESION
+print(result)
+
+#TIEMPO
 import time
 local = time.localtime()
 result = time.asctime(local)
 print(result) #FECHA ACTUAL
+
+#MANEJADOR DE LISTAS
+import collections
+numbers = [1,1,2,1,2,1,4,5,3,3,21]
+counter = collections.Counter(numbers) #FRECUENCIA DE NUMEROS EN LA LISTA {1: 4, 2: 2, 3: 2, 4: 1, 5: 1, 21: 1}
+print(counter)
 # ---------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------- ARCHIVOS ---------------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------------------
@@ -693,69 +759,3 @@ if __name__ == '__main__':
   values = [10, 40, 800]
   # generate_bar_chart(labels, values)
   generate_pie_chart(labels, values)
-# ---------------------------------------------------------------------------------------------------------------------
-# -------------------------------------------------- MODULOS ----------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------
-import random
-random.randint(1,100)
-options = ('piedra', 'papel', 'tijera')
-computer_option = random.choice(options)
-population_v2 = { country: random.randint(1, 100)  for country in ['col', 'mex', 'bol', 'pe']} #CREAR DICCIONARIO {'col': 47, 'mex': 64, 'bol': 66, 'pe': 17}
-
-#MUESTRA LA RUTA
-import sys 
-print(sys.path) 
-
-#EXPRESIONES REGULARES
-import re
-text = 'Mi numero de telefono es 311 123 121, el codigo del pais es 57, mi numero de la suerte 3'
-result = re.findall('[0-9]+', text) #EJECUTA EXPRESION
-print(result)
-
-#TIEMPO
-import time
-local = time.localtime()
-result = time.asctime(local)
-print(result) #FECHA ACTUAL
-
-#MANEJADOR DE LISTAS
-import collections
-numbers = [1,1,2,1,2,1,4,5,3,3,21]
-counter = collections.Counter(numbers) #FRECUENCIA DE NUMEROS EN LA LISTA {1: 4, 2: 2, 3: 2, 4: 1, 5: 1, 21: 1}
-print(counter)
-# ---------------------------------------------------------------------------------------------------------------------
-# -------------------------------------------------- FastAPI ----------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------
-# https://platzi.com/clases/4261-python-pip/55134-python-para-backend-web-server-con-fastapi/
-# pip install fastapi
-# pip3 install "uvicorn[standard]"
-# python -m uvicorn PRUEBAS:app --reload #LEVANTAR EL ENTORNO
-from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
-
-app = FastAPI()
-
-@app.get('/')
-def get_list():
-    return [1,2,3,]
-
-@app.get('/contact', response_class=HTMLResponse)
-def get_list():
-    return """
-        <h1>Hola soy una pagina</h1>
-        <p>soy un parrafo</p>
-    """
-# PANDAS: https://platzi.com/clases/4261-python-pip/55133-pandas/
-# FAST API: https://platzi.com/clases/4261-python-pip/55134-python-para-backend-web-server-con-fastapi/
-# DOCKER: https://platzi.com/clases/4261-python-pip/55136-instalacion-de-docker/
-# ---------------------------------------------------------------------------------------------------------------------
-# -------------------------------------------------- PIP ----------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------
-# PIP es el gestor de paquetes de python, es posible buscar librerías en la pagina pypi.org.
-
-# Ver la versión de pip pip3 -v.
-# Instalación de paquetes pip3 install <libreria>.
-# Listar las librerías que se tienen en el entorno de python global pip3 list.
-# Listar todas las librerías de python instaladas por el usuario pip3 freeze.
-# Verificar donde esta python y pip which python3 o which pip3
-#ambiente virtual= https://platzi.com/clases/4261-python-pip/55130-usando-entornos-virtuales-en-python/
