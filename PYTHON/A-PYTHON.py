@@ -723,7 +723,28 @@ import collections
 numbers = [1,1,2,1,2,1,4,5,3,3,21]
 counter = collections.Counter(numbers) #FRECUENCIA DE NUMEROS EN LA LISTA {1: 4, 2: 2, 3: 2, 4: 1, 5: 1, 21: 1}
 print(counter)
+# ---------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------- FastAPI ----------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+# https://platzi.com/clases/4261-python-pip/55134-python-para-backend-web-server-con-fastapi/
+# pip install fastapi
+# pip3 install "uvicorn[standard]"
+# python -m uvicorn PRUEBAS:app --reload #LEVANTAR EL ENTORNO
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 
+app = FastAPI()
+
+@app.get('/')
+def get_list():
+    return [1,2,3,]
+
+@app.get('/contact', response_class=HTMLResponse)
+def get_list():
+    return """
+        <h1>Hola soy una pagina</h1>
+        <p>soy un parrafo</p>
+    """
 # PANDAS: https://platzi.com/clases/4261-python-pip/55133-pandas/
 # FAST API: https://platzi.com/clases/4261-python-pip/55134-python-para-backend-web-server-con-fastapi/
 # DOCKER: https://platzi.com/clases/4261-python-pip/55136-instalacion-de-docker/
@@ -737,5 +758,4 @@ print(counter)
 # Listar las librerías que se tienen en el entorno de python global pip3 list.
 # Listar todas las librerías de python instaladas por el usuario pip3 freeze.
 # Verificar donde esta python y pip which python3 o which pip3
-
 #ambiente virtual= https://platzi.com/clases/4261-python-pip/55130-usando-entornos-virtuales-en-python/
