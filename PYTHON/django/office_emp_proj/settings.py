@@ -1,6 +1,8 @@
 """
-CONTIENE TODA LA INFORMACION DE LOS ARCHIVOS DE NUESTRO PROYECTO
+CONTIENE TODA LA INFORMACION DE LOS ARCHIVOS DE NUESTRO PROYECTO.
+ES EL ENV DE NUESTRO PROYECTO
 """
+#https://platzi.com/clases/2694-django/45265-ajustando-el-archivo-settingspy/ DESDE EL MIN 6
 
 from pathlib import Path
 
@@ -14,21 +16,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-@gspj#ifgnpj4f&=czkn_i%knko&d-#gmz8ablf^9at4g9hr_0'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+#DEBUG SIEMPRE DEBER SER FALSE EN PRODUCCION
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
 
-# Application definition
+#APPS INTERNAS DE NUESTRO PROYECTO, QUE APPS ESTAN INSTALADAS
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin', #ADMINISTRA DATOS
+    'django.contrib.auth', #AUTENTICACION DE USUARIOS
+    'django.contrib.contenttypes', #FORMATOS DE ARCHIVOS
+    'django.contrib.sessions', #SESIONES DE USUARIOS
+    'django.contrib.messages', #COMUNICACIONES ENTRE USUARIOS, FRAMEWORK DE MENSAJERIA
+    'django.contrib.staticfiles', #APP PARA ARCHIVOS ESTATICOS (HTML, CSS, JAVASCRIPT)
+    #CADA APP NUEVA DEBE ESTAR ACA
     'emp_app',
 ]
 
@@ -63,13 +66,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'office_emp_proj.wsgi.application'
 
 
-# Database, MANEJA LAS BASES DE DATOS
+# Database, MANEJA LAS BASES DE DATOS. CONEXION A BASES DE DATOS
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
+# django no soporta bases de datos no relacionales pero se pueden hackear
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3', #MOTOR DE LA BASE DE DATOS EN VEZ DE sqlite3, PUEDE SER mysql,postgresql,oracle
         'NAME': BASE_DIR / 'db.sqlite3',
+        #para mysql tambien hay que agregar otros campos como:
+        'USER':'USER',
+        'PASSWORD':'PASS',
     }
 }
 

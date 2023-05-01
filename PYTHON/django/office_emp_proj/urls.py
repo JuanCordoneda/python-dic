@@ -1,3 +1,5 @@
+'ARCHIVO DE RUTAS DE TODAS NUESTRAS APLIACIONES'
+#https://platzi.com/clases/2694-django/45264-nuestro-primer-proyecto-premios-platzi-app-2/
 """office_emp_proj URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,5 +20,5 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include("emp_app.urls")),
+    path('',include("emp_app.urls")), #IMPORTA TODAS LAS URLS DE LA APP emp_app
 ]

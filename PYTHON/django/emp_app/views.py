@@ -1,12 +1,14 @@
+'CREA LAS VISTAS'
 from datetime import datetime
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse #ESTO PERMITE GENERAR UN RESPUESTA HTTP
 from .models import Employee,Role,Department
 from django.db.models import Q
 
-# Create your views here.
+# EL INDEX
 def index(request):
-    return render(request,'index.html')
+#    return HttpResponse('HELLO WORLD') #respuesta HTTP
+    return render(request,'index.html') #IMPRIME LA VISTA INDEX.HTML
 
 def all_emp(request):
     emps = Employee.objects.all()

@@ -1,4 +1,6 @@
 """
+ASGI Y WSGI SON UN CONJUNTO DE ARCHIVOS NECESARIOS PARA HACER EL DEPLOY
+
 WSGI config for office_emp_proj project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
