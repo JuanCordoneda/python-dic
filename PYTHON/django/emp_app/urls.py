@@ -12,3 +12,4 @@ urlpatterns = [
     path('remove_emp/<int:emp_id>',views.remove_emp,name="remove_emp"),
     path('filter_emp',views.filter_emp,name="filter_emp"),
 ]
+# http://127.0.0.1:8000/admin

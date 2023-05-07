@@ -1,0 +1,40 @@
+python3 manage.py runserver //LEVANTA ENTORNO LOCAL
+SI EL PROYECTO NO ANDA TIRAR DENUEVO EL RUNSERVER
+python3 manage.py startapp nombre //CREA UNA NUEVA APP
+-------------------------------------------------------------------------------------------------
+CADA VEZ QUE TOCO LOS MODELOS TENGO QUE EJECUTAR ESTOS 2 COMANDOS
+python3 manage.py makemigrations nombre //CREA LAS MIGRACIONES A TRAVES DE LOS MODELOS
+python3 manage.py migrate //MIGRA
+-------------------------------------------------------------------------------------------------
+BASE DE DATOS Y CONSOLA INTERACTIVA
+python3 manage.py shell //CONSOLA INTERACTIVA
+    from emp_app.models import Employee //Trae todos los datos de Employees a la consola
+    Employee.objects.all()              //GET ALL AL MODELO
+    Role.objects.get(name='Juan Cruz')  //GET AL MODELO (1 SOLO OBJETO)
+    Role.objects.filter(name='Juan Cruz')  //GET AL MODELO (+ DE 1 OBJETO)
+    //QUERIES CON __ https://docs.djangoproject.com/en/3.2/topics/db/queries/#field-lookups-intro
+
+    registro=Role(name='Juan Cruz') //INSERT AL MODELO parte 1
+    registro.save() //parte 2
+    registro.name //juan cruz
+
+    Role.objects.filter(name_text__startswith='Juan Cruz')  //EMPIEZA CON...
+    __gt = Mayor que
+    __gte = Mayor o igual que
+    __lt = Menor que
+    __lte = Menos o igual que
+    __startswith = Empieza con
+    __endswith = Termina con    
+
+    claves foraneas
+    registro.name_set.all() //trae todos los registros asociados al nombre
+    registro.name_set.count(campos) //cuenta registros asociados al nombre
+    registro.name_set.create(campos) //crea registros asociados al nombre
+
+
+https://platzi.com/clases/2694-django/45272-accediendo-al-conjunto-de-respuestas/
+https://docs.djangoproject.com/en/3.2/topics/db/queries/#field-lookups-intro
+-------------------------------------------------------------------------------------------------
+CREAR SUPERUSER
+python3 manage.py createsuperuser //CONSOLA INTERACTIVA
+

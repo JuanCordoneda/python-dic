@@ -1,4 +1,0 @@
-python3 manage.py runserver //LEVANTA ENTORNO LOCAL
-SI EL PROYECTO NO ANDA TIRAR DENUEVO EL RUNSERVER
-
-python3 manage.py startapp nombre //CREA UNA NUEVA APP
