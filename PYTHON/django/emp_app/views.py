@@ -1,23 +1,24 @@
 'CREA LAS VISTAS'
 from datetime import datetime
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse #ESTO PERMITE GENERAR UN RESPUESTA HTTP
 from .models import Employee,Role,Department
 from django.db.models import Q
 
+app_name='emp_app'
+# https://platzi.com/clases/2694-django/45278-elevando-el-error-404/
 # EL INDEX
 def index(request):
-#    return HttpResponse('HELLO WORLD') #respuesta HTTP
     return render(request,'index.html') #IMPRIME LA VISTA INDEX.HTML
 
 def all_emp(request):
-    emps = Employee.objects.all()
-    context = {
+    emps = Employee.objects.all() #BUSCA TODOS LOS ELEMENTOS
+    context = {  #ARRAY DE CAMPOS
         'emps':emps
     }
-    print(context)
+    print(context) #IMPRIME
     
-    return render(request,'viewall_emp.html',context    )
+    return render(request,'viewall_emp.html',context    ) #RENDERIZA
 
 def add_emp(request):
     

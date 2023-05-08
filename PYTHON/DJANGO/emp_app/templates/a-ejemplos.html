@@ -1,0 +1,68 @@
+# https://ccbv.co.uk/ --VISTAS GENERICAS https://platzi.com/clases/2694-django/45284-implementando-generic-views-en-la-aplicacion/
+//https://docs.djangoproject.com/en/4.0/ref/templates/language/ TODAS LAS ETIQUETAS
+
+{% load static %} //carga la carpeta static (css, js)
+
+{% if  variable %} {% else %}{% endif %} //IF
+{% for elem in registro.name_set.all %} {% endfor %} //FOR (VA SIN PARENTESIS EL ALL)
+{{modelo.id}} //TRAE EL DATO
+<a href="{% url 'emp_app:all_emp' question.id %}">LINKS</a>
+
+//FORMULARIO 1
+<form action="/add_emp" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="first_name" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="first_name" name="first_name" value="{{first_name}}">
+    <div class="mb-3">
+      <label for="last_name" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="last_name" name="last_name" value="{{last_name}}">
+    </div>
+    <div class="mb-3">
+      <label for="salary" class="form-label">Salary</label>
+      <input type="number" class="form-control" id="salary" name="salary" value="{{salary}}">
+    </div>
+    <div class="mb-3">
+      <label for="dept" class="form-label">Departmnet</label>
+      <input type="number" class="form-control" id="dept" name="dept" value="{{dept}}">
+    </div>
+    <div class="mb-3">
+      <label for="role" class="form-label">Role</label>
+      <input type="number" class="form-control" id="role" name="role" value="{{role}}">
+    </div>
+    <div class="mb-3">
+      <label for="bonus" class="form-label">Bonus</label>
+      <input type="number" class="form-control" id="bonus" name="bonus" value="{{bonus}}">
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input type="number" class="form-control" id="phone" name="phone" value="{{bonus}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+//FORMULARIO PLATZI https://platzi.com/clases/2694-django/45281-creando-la-vista-vote/
+<form action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %} //PROTEJE DE ATAQUES
+    <fieldset>
+        <legend><h1>{{ question.question_text }}</h1></legend> 
+        {% if error_message %}                             //SI LLEGA ERROR LO EJECUTA
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+        {% for choice in question.choice_set.all %}
+            <div>
+                <input 
+                    type="radio" 
+                    name="choice" 
+                    id="choice{{ forloop.counter }}" 
+                    value="{{ choice.id }}"    
+                > //forloop.counter MUESTRA EL INDICE DEL FOR (1,2,3)
+                <label for="choice{{ forloop.counter }}"> 
+                    {{ choice.choice_text }}
+                </label>
+            </div>
+            <br>
+        {% endfor %}
+    </fieldset>
+    <input type="Submit" name="submit" value="Votar">
+</form>
